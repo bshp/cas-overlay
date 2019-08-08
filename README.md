@@ -1,20 +1,23 @@
 CAS Overlay Template
-=======================
+============================
 
-Generic CAS WAR overlay to exercise the latest versions of CAS. This overlay could be freely used as a starting template for local CAS war overlays.
+Generic CAS WAR overlay to exercise the latest versions of CAS. This overlay could be freely used as a starting template for local CAS war overlays. The CAS services management overlay is available [here](https://github.com/apereo/cas-services-management-overlay).
 
 # Versions
 
-- CAS `6.0.x`
-- JDK `11`
-
-# Overview
-
-You may invoke build commands using the `build.sh` script to work with your chosen overlay using:
-
-```bash
-./build.sh [command]
+```xml
+<cas.version>5.3.x</cas.version>
 ```
+
+# Requirements
+
+* JDK 1.8+
+
+# Configuration
+
+The `etc` directory contains the configuration files and directories that need to be copied to `/etc/cas/config`.
+
+# Build
 
 To see what commands are available to the build script, run:
 
@@ -22,37 +25,17 @@ To see what commands are available to the build script, run:
 ./build.sh help
 ```
 
-# Configuration
-
-- The `etc` directory contains the configuration files and directories that need to be copied to `/etc/cas/config`.
-- The specifics of the build are controlled using the `gradle.properties` file.
-
-## Adding Modules
-
-CAS modules may be specified under the `dependencies` block of the [Gradle build script](build.gradle):
-
-```gradle
-dependencies {
-    compile "org.apereo.cas:cas-server-some-module:${project.casVersion}"
-    ...
-}
-```
-
-Study material:
-
-- https://docs.gradle.org/current/userguide/artifact_dependencies_tutorial.html
-- https://docs.gradle.org/current/userguide/dependency_management.html
-
-## Clear Gradle Cache
-
-If you need to, on Linux/Unix systems, you can delete all the existing artifacts (artifacts and metadata) Gradle has downloaded using:
+To package the final web application, run:
 
 ```bash
-# Only do this when absolutely necessary!
-rm -rf $HOME/.gradle/caches/
+./build.sh package
 ```
 
-Same strategy applies to Windows too, provided you switch `$HOME` to its equivalent in the above command.
+To update `SNAPSHOT` versions run:
+
+```bash
+./build.sh package -U
+```
 
 # Deployment
 
@@ -61,6 +44,7 @@ Same strategy applies to Windows too, provided you switch `$HOME` to its equival
 
 On a successful deployment via the following methods, CAS will be available at:
 
+* `http://cas.server.name:8080/cas`
 * `https://cas.server.name:8443/cas`
 
 ## Executable WAR
@@ -71,6 +55,47 @@ Run the CAS web application as an executable WAR.
 ./build.sh run
 ```
 
+## Spring Boot
+
+Run the CAS web application as an executable WAR via Spring Boot. This is most useful during development and testing.
+
+```bash
+./build.sh bootrun
+```
+
+### Warning!
+
+Be careful with this method of deployment. `bootRun` is not designed to work with already executable WAR artifacts such that CAS server web application. YMMV. Today, uses of this mode ONLY work when there is **NO OTHER** dependency added to the build script and the `cas-server-webapp` is the only present module. See [this issue](https://github.com/spring-projects/spring-boot/issues/8320) for more info.
+
+
+## Spring Boot App Server Selection
+
+There is an app.server property in the `pom.xml` that can be used to select a spring boot application server.
+It defaults to `-tomcat` but `-jetty` and `-undertow` are supported.
+
+It can also be set to an empty value (nothing) if you want to deploy CAS to an external application server of your choice.
+
+```xml
+<app.server>-tomcat<app.server>
+```
+
+## Windows Build
+
+If you are building on windows, try `build.cmd` instead of `build.sh`. Arguments are similar but for usage, run:
+
+```
+build.cmd help
+```
+
 ## External
 
-Deploy the binary web application file `cas.war` after a successful build to a servlet container of choice.
+Deploy resultant `target/cas.war`  to a servlet container of choice.
+
+
+## Command Line Shell
+
+Invokes the CAS Command Line Shell. For a list of commands either use no arguments or use `-h`. To enter the interactive shell use `-sh`.
+
+```bash
+./build.sh cli
+```
