@@ -166,6 +166,11 @@
                     <version>${cas.version}</version>
                 </dependency>
                 <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-interrupt-webflow</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
                     <version>8.0.15</version>
