@@ -88,6 +88,14 @@
             </snapshots>
         </repository>
         <repository>
+            <id>maven</id>
+            <name>maven</name>
+            <url>https://plugins.gradle.org/m2/</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
             <id>sonatype-releases</id>
             <url>http://oss.sonatype.org/content/repositories/releases/</url>
             <snapshots>
@@ -112,6 +120,24 @@
             <url>https://build.shibboleth.net/nexus/content/repositories/releases</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache</id>
+            <name>Apache Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-release</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/spring-release</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <profiles>
         <profile>
@@ -154,16 +180,6 @@
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-pm-jdbc</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-jdbc-drivers</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
                     <artifactId>cas-server-support-interrupt-webflow</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
@@ -184,7 +200,6 @@
                 </dependency>
             </dependencies>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -218,7 +233,6 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -238,7 +252,6 @@
                 </dependency>
             </dependencies>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -247,9 +260,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>com.github.s4u.plugins</groupId>
+                        <groupId>org.simplify4u.plugins</groupId>
                         <artifactId>pgpverify-maven-plugin</artifactId>
-                        <version>1.1.0</version>
+                        <version>1.6.0</version>
                         <executions>
                             <execution>
                                 <goals>
