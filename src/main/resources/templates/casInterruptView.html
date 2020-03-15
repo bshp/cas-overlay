@@ -2,27 +2,17 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-
     <title th:text="#{cas.login.pagetitle}">CAS Interrupt View</title>
-    <link href="../../static/css/cas.css" rel="stylesheet" th:remove="tag" />
-
     <script th:inline="javascript" th:if="${interrupt.autoRedirect}">
         /*<![CDATA[*/
-
         var autoRedirect = /*[[${interrupt.autoRedirect}]]*/;
         var emptyLinks = /*[[${#maps.isEmpty(interrupt.links)}]]*/;
-
         if (autoRedirect && !emptyLinks) {
-
             var link = /*[[${interrupt.links.values().iterator().next()}]]*/;
             var redirectTimeout = /*[[${interrupt.autoRedirectAfterSeconds}]]*/;
-
             setTimeout(function () {
                 window.location = link;
             }, redirectTimeout <= 0 ? 0 : redirectTimeout * 1000);
-
         }
         /*]]>*/
     </script>
@@ -46,7 +36,6 @@
                    th:href="${link.value}">link.key</a>
             </div>
         </div>
-
 
         <form method="post" id="fm1" th:if="${not interrupt.block}">
             <div class="form-group text-center">
@@ -72,5 +61,4 @@
     </div>
 </main>
 </body>
-
 </html>
