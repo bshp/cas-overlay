@@ -2,11 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apereo.cas</groupId>
     <artifactId>cas-overlay</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
+
+    <properties>
+        <bshp.version>4.1</bshp.version>
+        <cas.version>6.1.4</cas.version>
+        <mysql.version>8.0.15</mysql.version>
+        <mssql.version>7.4.0.jre11</mssql.version>
+        <springboot.version>2.2.0.RELEASE</springboot.version>
+        <app.server>-tomcat</app.server>
+        <mainClassName>org.springframework.boot.loader.WarLauncher</mainClassName>
+        <isExecutable>false</isExecutable>
+        <manifestFileToUse>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp${app.server}/META-INF/MANIFEST.MF</manifestFileToUse>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <build>
         <plugins>
@@ -65,18 +81,6 @@
         </plugins>
         <finalName>cas</finalName>
     </build>
-
-    <properties>
-        <cas.version>6.1.4</cas.version>
-        <springboot.version>2.2.0.RELEASE</springboot.version>
-        <app.server>-tomcat</app.server>
-        <mainClassName>org.springframework.boot.loader.WarLauncher</mainClassName>
-        <isExecutable>false</isExecutable>
-        <manifestFileToUse>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp${app.server}/META-INF/MANIFEST.MF</manifestFileToUse>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <repositories>
         <repository>
@@ -165,17 +169,17 @@
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-pm-rest</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
                     <artifactId>cas-server-support-saml-googleapps</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
                     <artifactId>cas-server-support-json-service-registry</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-sms-clickatell</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
                 <dependency>
@@ -191,12 +195,12 @@
                 <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
-                    <version>8.0.15</version>
+                    <version>${mysql.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>com.microsoft.sqlserver</groupId>
                     <artifactId>mssql-jdbc</artifactId>
-                    <version>7.4.0.jre11</version>
+                    <version>${mssql.version}</version>
                 </dependency>
             </dependencies>
         </profile>
