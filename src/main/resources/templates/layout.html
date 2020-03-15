@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Single Sign On</title>
     <meta charset="UTF-8"/>
@@ -12,15 +12,18 @@
     <link rel="stylesheet" href="/cas/css/mobile.css" media="all and (min-width: 1px) and (max-width: 550px)"/>
     <link rel="stylesheet" href="/cas/css/bshp.css" media="all and (min-width: 550px)"/>
     <link rel="stylesheet" href="/cas/css/font-awesome.min.css"/>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/cas/css/font-ubuntu.css" />
+    <link rel="icon" href="/cas/favicon.ico" type="image/x-icon"/>
     <script type="text/javascript" th:src="@{#{webjars.jquerymin.js}}"></script>
 </head>
 <body>
+
 <div layout:fragment="content" id="main">
-    <h1/>
-    <p/>
+    <h1></h1>
+    <p></p>
 </div>
-<script th:replace="fragments/scripts"/>
+
+<script th:replace="fragments/scripts"></script>
 
 </body>
 </html>

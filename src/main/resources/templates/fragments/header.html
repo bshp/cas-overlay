@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <title>BSHP - Single Sign On</title>
+    <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <title>BSHP Single Sign On</title>
-    <link rel="stylesheet" href="../../static/css/cas.css" th:remove="tag" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="icon" href="../../static/favicon.ico" type="image/x-icon"/>
+    <meta name="node:id" th:attr="content=#{cas.router.node.id}"/>
+    <meta name="node:name" th:attr="content=#{cas.router.node.name}"/>
+    <meta name="node:env" th:attr="content=#{cas.router.node.env}"/>
+    <meta name="node:locale" th:attr="content=#{cas.router.node.locale}"/>
+    <link rel="stylesheet" href=/cas/css/mobile.css" media="all and (min-width: 1px) and (max-width: 550px)"/>
+    <link rel="stylesheet" href="/cas/css/bshp.css" media="all and (min-width: 550px)"/>
+    <link rel="stylesheet" href="/cas/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/cas/css/font-ubuntu.css" />
+    <link rel="icon" href="/cas/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
     <header th:fragment="header" role="banner">
