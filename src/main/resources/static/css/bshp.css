@@ -125,6 +125,25 @@ input[type=checkbox] {
     width: 16px;
 }
 
+#passwordManagementForm input[type="password"] {
+    height: 18px;
+    width: 225px;
+}
+
+#passwordManagementForm .btn-danger {
+    border: 0;
+    padding: 0px 5px;
+    font-weight: normal;
+    font-size: 1.25em;
+    text-shadow: none;
+    height: 30px;
+    width: 75px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    margin: 0;
+}
+
 label {
     font-size: 14px;
     font-weight: normal;
@@ -294,6 +313,28 @@ a:hover {
 /*
  * Bootstrap Buttons
  */
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .btn-social, .btn-social-icon {
     background-color: slategray;
 }
@@ -1498,6 +1539,12 @@ fieldset[disabled] .btn-yahoo.focus {
 /**
  * Add in our own custom social colors.
  */
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
 .btn-submit {
     background-color: #70ba61;
     color: #fff;
