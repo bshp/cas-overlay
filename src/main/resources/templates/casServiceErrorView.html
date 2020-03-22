@@ -10,7 +10,7 @@
                 <div id="logo"></div>
             </h2>
             <div id="msg" class="alert alert-danger">
-                <h2 th:utext="#{screen.service.error.header}">Application Not Authorized</h2>
+                <h3 th:utext="#{screen.service.error.header}">Application Not Authorized</h3>
                 <p th:if="${rootCauseException != null and rootCauseException.code != null}" th:utext="#{${rootCauseException.code}}">rootCauseException.code</p>
             </div>
         </div>

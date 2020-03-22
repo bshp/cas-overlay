@@ -17,30 +17,17 @@
 </head>
 <body>
     <div class="alert alert-info">
-        <h3 th:utext="${expiredPass} ? #{screen.expiredpass.heading} : #{screen.mustchangepass.heading}">Change Password Heading</h3>
         <form id="passwordManagementForm" th:if="${passwordManagementEnabled}" method="post" th:object="${password}">
             <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
                 <span th:each="err : ${#fields.errors('*')}" th:utext="${err}">Error text</span>
             </div>
             <div class="form-group">
-                <label for="password" th:utext="#{screen.pm.enterpsw}">Enter Password:</label>&nbsp;
+                <label for="password" style="margin-right:16px;" th:utext="#{screen.pm.enterpsw}">Enter Password:</label>&nbsp;
                 <input class="form-control" type="password" id="password" th:field="*{password}" required/>
             </div>
             <div class="form-group">
                 <label for="confirmedPassword" th:utext="#{screen.pm.confirmpsw}">Confirm Password:</label>&nbsp;
                 <input class="form-control" type="password" id="confirmedPassword" th:field="*{confirmedPassword}" required/>
-            </div>
-            <div class="form-group">
-                <div>
-                    <span th:text="#{screen.pm.password.strength}">Strength:</span>&nbsp;
-                    <span id="password-strength-icon" class="fas" aria-hidden="true"></span>
-                </div>
-                <div class="progress">
-                    <div id="strengthProgressBar" class="progress-bar"></div>
-                </div>
-                <div>
-                    <span id="password-strength-warning"></span>&nbsp;<span id="password-strength-suggestions"></span>
-                </div>
             </div>
             <div class="form-group" id="password-strength-notes">
                 <div id="password-policy-violation-msg" class="alert alert-danger" role="alert" style="display: none;">
@@ -60,7 +47,7 @@
                 <a class="btn btn-danger" th:href="@{/login}" th:text="#{screen.pm.button.cancel}">CANCEL</a>
             </div>
         </form>
-        <p th:unless="${passwordManagementEnabled}" th:utext="${expiredPass} ? #{screen.expiredpass.message} : #{screen.mustchangepass.message}">Expired/Must Change Password text</p>
+        <p th:unless="${passwordManagementEnabled}" th:utext="${expiredPass} ? #{screen.expiredpass.message} : #{screen.mustchangepass.message}">Expired/Must Change Password</p>
     </div>
 </body>
 </html>

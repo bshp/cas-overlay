@@ -10,9 +10,9 @@
             <div id="logo"></div>
         </h2>
         <div id="msg" class="alert alert-success">
-            <h3 th:utext="#{screen.success.header}">Log In Successful</h3>
-            <p>You have successfully logged into the Single Sign-On Service.</p>
-            <p th:utext="#{screen.success.security}">When you are finished, for security reasons, please <a href="logout">log out</a> and exit your web browser.</p>
+            <h3 th:utext="#{screen.success.header}">Login Successful</h3>
+            <p th:utext="#{screen.success.success(${principal.id})}">You, <strong>{0}</strong>, have successfully logged into the Single Sign-On Service.</p>
+            <p th:utext="#{screen.success.security}">When you are finished, for security reasons, please <a href="logout">logout</a> and exit your web browser.</p>
         </div>
     </div>
 </div>

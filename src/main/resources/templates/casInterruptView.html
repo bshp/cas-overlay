@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
-
 <head>
     <title th:text="#{cas.login.pagetitle}">CAS Interrupt View</title>
     <script th:inline="javascript" th:if="${interrupt.autoRedirect}">
@@ -17,18 +16,14 @@
         /*]]>*/
     </script>
 </head>
-
 <body>
 <main role="main" class="container mt-3 mb-3">
     <div layout:fragment="content">
         <h1 th:text="#{screen.interrupt.title}">Authentication Interrupt</h1>
-        <p th:utext="#{screen.interrupt.message(${principal.id})}">The authentication flow has been interrupted. CAS has
-            not yet established a single sign-on session for <strong>{0}</strong>.</p>
-
+        <p th:utext="#{screen.interrupt.message(${principal.id})}">The authentication flow has been interrupted. CAS has not yet established a single sign-on session for <strong>{0}</strong>.</p>
         <div th:if="${interrupt.message}" class="alert alert-info">
             <p th:utext="${interrupt.message}">interrupt.message</p>
             <br/>
-
             <div th:if="${interrupt.links}">
                 <a class="btn btn-success"
                    th:each="link : ${interrupt.links}"
@@ -36,7 +31,6 @@
                    th:href="${link.value}">link.key</a>
             </div>
         </div>
-
         <form method="post" id="fm1" th:if="${not interrupt.block}">
             <div class="form-group text-center">
                 <div class="col-12">
@@ -53,7 +47,6 @@
                 </div>
             </div>
         </form>
-
         <div th:if="${interrupt.block}" class="text-center">
             <a class="btn btn-warning" id="cancel" name="cancel" th:href="@{/login}"
                th:text="#{screen.interrupt.btn.cancel}">Cancel</a>
