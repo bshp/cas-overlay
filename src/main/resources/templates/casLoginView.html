@@ -8,7 +8,7 @@
     <h2>
         <div id="logo"></div>
     </h2>
-    <form method="post" id="fm1" onsubmit="return cleanUsername()" th:object="${credential}" autocomplete="off">
+    <form method="post" id="fm1" onsubmit="return real_username()" th:object="${credential}" autocomplete="off">
         <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
             <span th:each="err : ${#fields.errors('*')}" th:utext="${err}"/>
         </div>
@@ -81,25 +81,24 @@
         </div>
     </div>
     <script type="text/javascript" th:inline="javascript">
-        var i = [[#{screen.welcome.button.loginwip}]]
+        var submit_text = [[#{screen.welcome.button.loginwip}]];
         $("#fm1").submit(function() {
             $(":submit").attr("disabled", true);
-            $(":submit").attr("value", i);
+            $(":submit").attr("value", submit_text);
             return true;
         });
     </script>
     <script type="text/javascript">
-        if (!String.prototype.trim) {
-            (function() {
+        if (!String.prototype.trim) {(function() {
                 var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
                 String.prototype.trim = function() {
-                    return this.replace(rtrim, '');
+                return this.replace(rtrim, '');
                 };
             })();
         }
-        var cleanUsername = function() {
-            var usernameElement = document.getElementById('username');
-            usernameElement.value = usernameElement.value.trim().toLowerCase();
+        var real_username = function() {
+            var user = document.getElementById('username');
+            user.value = user.value.trim().toLowerCase();
             return true;
         };
     </script>
