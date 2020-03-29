@@ -164,26 +164,6 @@
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-pm-ldap</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-rest-authentication</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-pm-rest</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-saml-googleapps</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
                     <artifactId>cas-server-support-json-service-registry</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
@@ -194,9 +174,30 @@
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-pm-ldap</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-pm-rest</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-rest-authentication</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-saml-googleapps</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
                     <artifactId>cas-server-support-saml-sp-integrations</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
+                <!-- Non-Cas Dependencies -->
                 <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
