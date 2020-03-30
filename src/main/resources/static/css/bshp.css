@@ -167,14 +167,6 @@ label {
     left: 15px;
 }
 
-.submit {
-    background: url(../images/SignIn.png) no-repeat;
-    height: 35px;
-    width: 92px;
-    border: none;
-    cursor: pointer;
-}
-
 #create {
     position: absolute;
     left: 280px;

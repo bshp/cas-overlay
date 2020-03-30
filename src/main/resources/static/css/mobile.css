@@ -131,13 +131,6 @@ label {
 	left: 15px;
 }
 
-.submit {
-    background: url(../images/SignIn.png) no-repeat;
-    height: 35px;
-    width: 92px;
-    border: none;
-}
-
 #clear {
     position: relative;
     top: 7px;
