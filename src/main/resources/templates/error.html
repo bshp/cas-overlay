@@ -14,9 +14,9 @@
 </head>
 <body>
     <div layout:fragment="content">
-        <h2>
-            <div id="logo"></div>
-        </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-danger">
             <h3 th:utext="#{screen.unavailable.heading(${status},${error})}">Single Sign-On was unable to process this request: "{0}:{1}"</h3>
             <div th:utext="#{screen.unavailable.message}">screen.unavailable.message would go here</div>
@@ -25,6 +25,7 @@
                 <button type="button" class="btn btn-shutdown" onclick="showErrorDetails();">View Details</button>
             </p>
         </div>
+
     </div>
 </body>
 </html>

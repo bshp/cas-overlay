@@ -5,9 +5,9 @@
 </head>
 <body id="cas" class="login">
 <div layout:fragment="content" id="login">
-    <h2>
-        <div id="logo"></div>
-    </h2>
+
+    <div th:replace="fragments/header"></div>
+
         <form method="post" id="yubiKeyForm" th:object="${credential}" th:action="@{/login}">
             <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
                 <span th:each="err : ${#fields.errors('*')}" th:utext="${err + ' '}">Error message</span>
@@ -50,11 +50,9 @@
             </p>
             <p>For security reasons, please Log Out and Exit your web browser when you are done!</p>
         </div>
-        <div id="powered-by" class="powered-by">
-            <div id="copyright">
-                <p>Central Authentication Service</p>
-            </div>
-        </div>
-    </div>
+
+    <div th:replace="fragments/footer"></div>
+
+</div>
 </body>
 </html>

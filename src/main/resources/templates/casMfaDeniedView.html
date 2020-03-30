@@ -6,9 +6,9 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content">
-        <h2>
-            <div id="logo"></div>
-        </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-danger">
             <h3 th:utext="#{screen.mfaDenied.heading}">MFA attempt is denied.</h3>
             <p th:utext="#{screen.mfaDenied.message}">Your MFA provider has denied your attempt at second factor authentication. Contact your system administrator for help in restoring your account.</p>

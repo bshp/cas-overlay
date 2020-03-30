@@ -7,16 +7,11 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content">
-        <h2>
-            <div id="logo"></div>
-        </h2>
-        <div th:replace="fragments/pwdupdateform"><a href="fragments/pwdupdateform.html">pwdupdateform</a></div>
-        <!--
-        <div id="msg" class="errors">
-            <h3 th:utext="${expiredPass} ? #{screen.expiredpass.heading} : #{screen.mustchangepass.heading}">Change Password Heading</h3>
-            <p th:unless="${passwordManagementEnabled}" th:utext="${expiredPass} ? #{screen.expiredpass.message} : #{screen.mustchangepass.message}">Expired/Must Change Password</p>
-        </div>
-        -->
+
+        <div th:replace="fragments/header"></div>
+
+        <div th:replace="fragments/pwdUpdateForm"><a href="fragments/pwdUpdateForm.html">pwdUpdateForm</a></div>
+
     </div>
 </div>
 </body>

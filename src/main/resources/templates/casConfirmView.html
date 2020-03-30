@@ -6,9 +6,9 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content" class="confirmView">
-    <h2>
-        <div id="logo"></div>
-    </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-info">
             <h4 th:text="#{screen.confirmation.message}">You asked to be warned before logging into applications. Please proceed.</h4>
             <form method="post" id="form" class="fm-v clearfix">

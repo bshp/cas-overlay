@@ -6,9 +6,9 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content" class="loginMessageView">
-        <h2>
-            <div id="logo"></div>
-        </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-warning">
             <h3 th:text="#{screen.authentication.warning}">Authentication Succeeded with Warnings</h3>
             <div th:each="message : ${messages}">

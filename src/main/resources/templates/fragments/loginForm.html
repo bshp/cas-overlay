@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Logon Form</title>
-</head>
     <body>
 
         <form method="post" id="fm1" onsubmit="return real_username()" th:object="${credential}" autocomplete="off">
@@ -46,7 +43,6 @@
                     </div>
                     <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
                     <input type="hidden" name="_eventId" value="submit"/>
-                    <input type="hidden" name="geolocation"/>
                     <input class="btn btn-submit btn-block" name="submit" accesskey="l" th:value="#{screen.welcome.button.login}" tabindex="4" type="submit"/>
                 </div>
                 <div id="helpers">
@@ -102,8 +98,6 @@
             };
 
         </script>
-
-        <div th:replace="fragments/footer"></div>
 
     </body>
 </html>

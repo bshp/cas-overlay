@@ -5,9 +5,9 @@
 </head>
 <body>
     <div layout:fragment="content" class="confirmView">
-    <h2>
-        <div id="logo"></div>
-    </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-danger">
             <h3 th:utext="#{screen.delauthn.error.header}">Delegated Authentication Failure</h3>
             <p th:utext="#{screen.delauthn.error.message}">Single Sign-On is unable to complete the delegated authentication scenario,

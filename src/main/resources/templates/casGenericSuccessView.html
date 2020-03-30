@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
-<head>
-    <title th:text="#{screen.success.header}"></title>
-</head>
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content">
-        <h2>
-            <div id="logo"></div>
-        </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-success">
             <h3 th:utext="#{screen.success.header}">Login Successful</h3>
             <p th:utext="#{screen.success.success(${principal.id})}">You, <strong>{0}</strong>, have successfully logged into the Single Sign-On Service.</p>

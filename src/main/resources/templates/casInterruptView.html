@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
-    <title th:text="#{cas.login.pagetitle}">Single Sign-On Interrupt View</title>
     <script th:inline="javascript" th:if="${interrupt.autoRedirect}">
         /*<![CDATA[*/
         var autoRedirect = /*[[${interrupt.autoRedirect}]]*/;

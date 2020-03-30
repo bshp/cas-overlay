@@ -12,18 +12,12 @@
     <script th:inline="javascript">
 
         /*<![CDATA[*/
-
         var appId =  /*[[${u2fAuth.appId}]]*/;
-
         var version =  /*[[${u2fAuth.version}]]*/;
-
         var challenge =  /*[[${u2fAuth.challenge}]]*/;
-
         var keyHandle =  /*[[${u2fAuth.keyHandle}]]*/;
-
         setTimeout(function () {
             var registeredKeys = [{version: version, keyHandle: keyHandle}];
-
             u2f.sign(appId, challenge, registeredKeys, function (data) {
                 var form = document.getElementById('form');
                 var reg = document.getElementById('tokenResponse');
@@ -31,13 +25,9 @@
                 form.submit();
             });
         }, 1000);
-
         /*]]>*/
-
     </script>
-
 </head>
-
 <body>
 <main role="main" class="container mt-3 mb-3">
     <div layout:fragment="content" id="login">

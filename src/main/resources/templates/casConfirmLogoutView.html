@@ -6,9 +6,9 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content">
-    <h2>
-        <div id="logo"></div>
-    </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-info">
             <h3 th:utext="#{screen.logout.confirm.header}">Do you want to logout completely?</h3>
             <p th:remove="tag" th:utext="#{screen.logout.confirm.text}">An application may have redirected you to the Single

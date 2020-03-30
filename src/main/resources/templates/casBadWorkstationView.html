@@ -6,9 +6,9 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content">
-        <h2>
-            <div id="logo"></div>
-        </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-danger">
             <h3 th:utext="#{screen.badworkstation.heading}">You cannot login from this workstation.</h3>
             <p th:utext="#{screen.badworkstation.message}">Please contact the system administrator to regain access.</p>
