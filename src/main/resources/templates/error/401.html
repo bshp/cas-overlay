@@ -6,9 +6,9 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content">
-        <h2>
-            <div id="logo"></div>
-        </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-danger">
             <h3 th:utext="#{screen.error.page.accessdenied}">Access Denied</h3>
             <p th:utext="#{screen.error.page.permissiondenied}">You do not have permission to view this page.</p>

@@ -6,12 +6,12 @@
 <body>
 <div id="main" class="content" role="main">
     <div layout:fragment="content">
-        <h2>
-            <div id="logo"></div>
-        </h2>
+
+        <div th:replace="fragments/header"></div>
+
         <div id="msg" class="alert alert-danger">
             <h3 th:utext="#{screen.blocked.header}">Access Denied</h3>
-            <p th:utext="#{screen.blocked.message}">You've entered the wrong password for the user too many times. You've been throttled.</p>
+            <p th:utext="#{screen.blocked.message}">You've entered the wrong password too many times. You've been throttled.</p>
         </div>
     </div>
 </div>
