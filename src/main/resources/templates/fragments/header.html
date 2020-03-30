@@ -9,11 +9,12 @@
     <meta name="node:name" th:attr="content=#{cas.router.node.name}"/>
     <meta name="node:env" th:attr="content=#{cas.router.node.env}"/>
     <meta name="node:locale" th:attr="content=#{cas.router.node.locale}"/>
-    <link rel="stylesheet" href=/cas/css/mobile.css" media="all and (min-width: 1px) and (max-width: 550px)"/>
+    <link rel="stylesheet" href="/cas/css/mobile.css" media="all and (min-width: 1px) and (max-width: 550px)"/>
     <link rel="stylesheet" href="/cas/css/bshp.css" media="all and (min-width: 550px)"/>
     <link rel="stylesheet" href="/cas/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/cas/css/font-ubuntu.css" />
     <link rel="icon" href="/cas/favicon.ico" type="image/x-icon"/>
+    <script type="text/javascript" th:src="@{#{webjars.jquerymin.js}}"></script>
 </head>
 <body>
     <header th:fragment="header" role="banner">
