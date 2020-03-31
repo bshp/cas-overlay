@@ -30,9 +30,9 @@
                         <div>
                             <input class="required" type="password" id="password" size="25" tabindex="2" th:accesskey="#{screen.welcome.label.password.accesskey}" th:field="*{password}" autocomplete="off"/>
                             <span id="capslock-on" style="display:none;">
-                                    <p>
+                                    <p style="margin: .75em 0 .75em 0;">
                                         <i class="fa fa-exclamation-circle"></i>
-                                        <span th:utext="#{screen.capslock.on}"/>
+                                        <span>Caps lock is ON</span>
                                     </p>
                                 </span>
                         </div>
@@ -72,33 +72,7 @@
             <p>For security reasons, please Log Out and Exit your web browser when you are done!</p>
         </div>
 
-        <script type="text/javascript" th:inline="javascript">
-
-            var submit_text = [[#{screen.welcome.button.loginwip}]];
-            $("#fm1").submit(function() {
-                $(":submit").attr("disabled", true);
-                $(":submit").attr("value", submit_text);
-                return true;
-            });
-
-        </script>
-
-        <script type="text/javascript">
-
-            if (!String.prototype.trim) {
-                (function() {
-                    var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-                    String.prototype.trim = function() {return this.replace(rtrim, '');};
-                })();
-            }
-
-            var real_username = function() {
-                var user = document.getElementById('username');
-                user.value = user.value.trim().toLowerCase();
-                return true;
-            };
-
-        </script>
+        <script th:replace="fragments/loginScripts"></script>
 
     </body>
 </html>
