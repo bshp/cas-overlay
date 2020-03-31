@@ -2,11 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apereo.cas</groupId>
     <artifactId>cas-overlay</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
+
+    <properties>
+        <bshp.version>4.1</bshp.version>
+        <cas.version>6.1.4</cas.version>
+        <mysql.version>8.0.15</mysql.version>
+        <mssql.version>7.4.0.jre11</mssql.version>
+        <springboot.version>2.2.0.RELEASE</springboot.version>
+        <app.server>-tomcat</app.server>
+        <mainClassName>org.springframework.boot.loader.WarLauncher</mainClassName>
+        <isExecutable>false</isExecutable>
+        <manifestFileToUse>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp${app.server}/META-INF/MANIFEST.MF</manifestFileToUse>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <build>
         <plugins>
@@ -66,26 +82,19 @@
         <finalName>cas</finalName>
     </build>
 
-    <properties>
-        <cas.version>6.0.4</cas.version>
-        <springboot.version>2.1.2.RELEASE</springboot.version>
-        <!-- app.server could be -jetty, -undertow, -tomcat, or blank if you plan to provide appserver -->
-        <app.server>-tomcat</app.server>
-
-        <mainClassName>org.springframework.boot.loader.WarLauncher</mainClassName>
-        <isExecutable>false</isExecutable>
-        <manifestFileToUse>${project.build.directory}/war/work/org.apereo.cas/cas-server-webapp${app.server}/META-INF/MANIFEST.MF</manifestFileToUse>
-
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <repositories>
         <repository>
             <id>central</id>
             <name>Central Repository</name>
             <url>https://repo.maven.apache.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven</id>
+            <name>maven</name>
+            <url>https://plugins.gradle.org/m2/</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -116,6 +125,24 @@
         </repository>
     </repositories>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>apache</id>
+            <name>Apache Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-release</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/spring-release</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <profiles>
         <profile>
             <activation>
@@ -137,7 +164,27 @@
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-json-service-registry</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-interrupt-webflow</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
                     <artifactId>cas-server-support-pm-ldap</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-pm-rest</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-support-rest-authentication</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
                 <dependency>
@@ -147,37 +194,22 @@
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-json-service-registry</artifactId>
+                    <artifactId>cas-server-support-saml-sp-integrations</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-sms-clickatell</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-pm-jdbc</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-jdbc-drivers</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
+                <!-- Non-Cas Dependencies -->
                 <dependency>
                     <groupId>mysql</groupId>
                     <artifactId>mysql-connector-java</artifactId>
-                    <version>8.0.15</version>
+                    <version>${mysql.version}</version>
                 </dependency>
                 <dependency>
                     <groupId>com.microsoft.sqlserver</groupId>
                     <artifactId>mssql-jdbc</artifactId>
-                    <version>7.4.0.jre11</version>
+                    <version>${mssql.version}</version>
                 </dependency>
             </dependencies>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -211,7 +243,6 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -231,7 +262,6 @@
                 </dependency>
             </dependencies>
         </profile>
-
         <profile>
             <activation>
                 <activeByDefault>false</activeByDefault>
@@ -240,9 +270,9 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>com.github.s4u.plugins</groupId>
+                        <groupId>org.simplify4u.plugins</groupId>
                         <artifactId>pgpverify-maven-plugin</artifactId>
-                        <version>1.1.0</version>
+                        <version>1.6.0</version>
                         <executions>
                             <execution>
                                 <goals>
