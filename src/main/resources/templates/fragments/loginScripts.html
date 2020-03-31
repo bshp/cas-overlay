@@ -30,16 +30,18 @@
 </script>
 
 <script type="text/javascript">
-    // Warn if caps lock key is on
-    var pwd = document.getElementById("password");
-    var caps = document.getElementById("capslock-on");
 
-    pwd.addEventListener("keyup", function(event) {
-        if (event.getModifierState("CapsLock")) {
-            caps.style.display = "block";
-            caps.style.color = "red";
+    // Warn if caps lock key is on
+    var input_pwd = document.getElementById("password");
+    var key_capslock = document.getElementById("capslock-on");
+
+    $(input_pwd).keypress(function (event) {
+        var input_string = String.fromCharCode(event.which);
+        if (input_string.toUpperCase() === input_string && input_string.toLowerCase() !== input_string && !event.shiftKey) {
+            key_capslock.style.display = "block";
+            key_capslock.style.color = "red";
         } else {
-            caps.style.display = "none";
+            key_capslock.style.display = "none";
         }
     });
 
