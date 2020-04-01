@@ -5,5 +5,19 @@
         <cas:proxies th:if="${not #lists.isEmpty(chainedAuthentications)}">
             <cas:proxy th:each="proxy : ${chainedAuthentications}">[[${proxy.principal.id}]]</cas:proxy>
         </cas:proxies>
+        <cas:attributes th:if="${not #lists.isEmpty(assertion.primaryAuthentication.principal.attributes)}">
+            <th:block th:each="attr : ${assertion.primaryAuthentication.principal.attributes}">
+            ​  ​<th:block th:switch="${#strings.startsWith(attr.value.class.name,'java.util.Collection')}">
+            ​  ​    <th:block th:case="${true}">
+            ​    ​      <th:block th:each="av : ${attr.value}">
+                            <span th:utext="${'<cas:' + attr.key + '>' + av + '</cas:' + attr.key + '>'}" th:remove="tag"></span>
+                        </th:block>
+            ​  ​    </th:block>
+                    <th:block th:case="${false}">
+                        <span th:utext="${'<cas:' + attr.key + '>' + attr.value + '</cas:' + attr.key + '>'}" th:remove="tag"></span>
+                    </th:block>
+                </th:block>
+            </th:block>
+        </cas:attributes>
     </cas:authenticationSuccess>
 </cas:serviceResponse>
