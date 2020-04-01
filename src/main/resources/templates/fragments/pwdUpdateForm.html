@@ -21,11 +21,11 @@
             <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
                 <span th:each="err : ${#fields.errors('*')}" th:utext="${err}">Error text</span>
             </div>
-            <div class="form-group">
+            <div class="form-group pwd-update">
                 <label for="password" style="margin-right:16px;" th:utext="#{screen.pm.enterpsw}">Enter Password:</label>&nbsp;
                 <input class="form-control" type="password" id="password" th:field="*{password}" required/>
             </div>
-            <div class="form-group">
+            <div class="form-group pwd-update">
                 <label for="confirmedPassword" th:utext="#{screen.pm.confirmpsw}">Confirm Password:</label>&nbsp;
                 <input class="form-control" type="password" id="confirmedPassword" th:field="*{confirmedPassword}" required/>
             </div>
