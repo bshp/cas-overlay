@@ -130,6 +130,14 @@ input[type=checkbox] {
     width: 225px;
 }
 
+#passwordManagementForm .pwd-update {
+    padding-left: 15px;
+}
+
+#passwordManagementForm .text-center {
+    padding: 25px 0 15px 15px;
+}
+
 #passwordManagementForm .btn-danger {
     border: 0;
     padding: 0px 5px;
