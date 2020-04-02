@@ -5,18 +5,30 @@
         <cas:proxies th:if="${not #lists.isEmpty(chainedAuthentications)}">
             <cas:proxy th:each="proxy : ${chainedAuthentications}">[[${proxy.principal.id}]]</cas:proxy>
         </cas:proxies>
-        <cas:attributes th:if="${not #lists.isEmpty(assertion.primaryAuthentication.principal.attributes)}">
-            <th:block th:each="attr : ${assertion.primaryAuthentication.principal.attributes}">
-            ​  ​<th:block th:switch="${#strings.startsWith(attr.value.class.name,'java.util.Collection')}">
-            ​  ​    <th:block th:case="${true}">
-            ​    ​      <th:block th:each="av : ${attr.value}">
-                            <span th:utext="${'<cas:' + attr.key + '>' + av + '</cas:' + attr.key + '>'}" th:remove="tag"></span>
+        <cas:attributes>
+            <th:block th:each="val : ${principal.attributes}">
+                <div th:with="key=${#strings.escapeXml(#strings.substringBefore(val, '='))},value=${#strings.escapeXml(#strings.substringAfter(val, '='))}" th:remove="tag">
+                    <th:block th:switch="${#strings.substring(value,0,1)}" th:remove="tag">
+                        <th:block th:case="[">
+                            <th:block th:with="formattedValue=${#strings.replace(value, ', ', '|')}">
+                                <th:block th:each="group : ${#strings.listSplit(formattedValue, '|')}">
+                                    <th:block th:with="remRightBrace=${#strings.replace(group, '[', '')}">
+                                        <th:block th:with="remBothBraces=${#strings.replace(remRightBrace, ']', '')}">
+                                            <html th:inline="text"  th:remove="tag">
+                                            <[[${#strings.prepend(key, 'cas:')}]]>[[${remBothBraces}]]<[[${#strings.prepend(key, '/cas:')}]]>
+                                            </html>
+                                        </th:block>
+                                    </th:block>
+                                </th:block>
+                            </th:block>
                         </th:block>
-            ​  ​    </th:block>
-                    <th:block th:case="${false}">
-                        <span th:utext="${'<cas:' + attr.key + '>' + attr.value + '</cas:' + attr.key + '>'}" th:remove="tag"></span>
+                        <th:block th:case="*">
+                            <html th:inline="text"  th:remove="tag">
+                            <[[${#strings.prepend(key, 'cas:')}]]>[[${value}]]<[[${#strings.prepend(key, '/cas:')}]]>
+                            </html>
+                        </th:block>
                     </th:block>
-                </th:block>
+                </div>
             </th:block>
         </cas:attributes>
     </cas:authenticationSuccess>
