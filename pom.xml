@@ -174,11 +174,6 @@
                 </dependency>
                 <dependency>
                     <groupId>org.apereo.cas</groupId>
-                    <artifactId>cas-server-support-interrupt-webflow</artifactId>
-                    <version>${cas.version}</version>
-                </dependency>
-                <dependency>
-                    <groupId>org.apereo.cas</groupId>
                     <artifactId>cas-server-support-pm-ldap</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
