@@ -5,10 +5,11 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="node:id" th:attr="content=#{cas.router.node.id}"/>
-    <meta name="node:name" th:attr="content=#{cas.router.node.name}"/>
-    <meta name="node:env" th:attr="content=#{cas.router.node.env}"/>
-    <meta name="node:locale" th:attr="content=#{cas.router.node.locale}"/>
+    <meta name="node:id" th:attr="content=${@environment.getProperty('bshp.cas.node.id')}"/>
+    <meta name="node:name" th:attr="content=${@environment.getProperty('bshp.cas.node.name')}"/>
+    <meta name="node:version" th:attr="content=${@environment.getProperty('bshp.cas.node.version')}"/>
+    <meta name="node:environment" th:attr="content=${@environment.getProperty('bshp.cas.node.environment')}"/>
+    <meta name="node:location" th:attr="content=${@environment.getProperty('bshp.cas.node.location')}"/>
     <link rel="stylesheet" href="/cas/css/mobile.min.css" media="all and (min-width: 1px) and (max-width: 550px)"/>
     <link rel="stylesheet" href="/cas/css/bshp.min.css" media="all and (min-width: 550px)"/>
     <link rel="stylesheet" href="/cas/css/font-awesome.min.css"/>
