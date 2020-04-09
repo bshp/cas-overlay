@@ -41,10 +41,12 @@
                         </div>
                         <a href="https://idm.bshp.edu/pwm/public/forgottenpassword">Forgot Password?</a>
                     </div>
+                    <!--
                     <div class="row check">
                         <input id="publicWorkstation" name="publicWorkstation" value="false" tabindex="3" type="checkbox" />
                         <label for="publicWorkstation">I am using a public device</label>
                     </div>
+                    -->
                     <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
                     <input type="hidden" name="_eventId" value="submit"/>
                     <input id="submit" class="btn btn-submit btn-block" name="submit" accesskey="l" th:value="#{screen.welcome.button.login}" tabindex="4" type="submit"/>
@@ -72,7 +74,7 @@
             <p>
                 <strong>Notice:</strong>
                 This service and the services to which it provides access are for authorized use only.
-                Any attempt to gain unauthorized access, or exceed authorized access will be pursued, as applicable, under campus codes and state or federal law.
+                Any attempt to gain unauthorized access, or exceed authorized access will be pursued, as applicable, under campus policies and state or federal law.
             </p>
             <p>For security reasons, please Log Out and Exit your web browser when you are done!</p>
         </div>
