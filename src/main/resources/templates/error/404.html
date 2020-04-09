@@ -9,7 +9,7 @@
 
         <div th:replace="fragments/header"></div>
 
-        <div id="msg" class="alert alert-info">
+        <div id="msg" class="alert alert-info error-msg">
             <h3 th:utext="#{screen.error.page.notfound}">Page Not Found</h3>
             <p th:utext="#{screen.error.page.doesnotexist}">The page you are attempting to access does not exist at the moment.</p>
             <a class="btn btn-submit" th:href="@{/login}" th:utext="#{screen.error.page.loginagain}">Login Again</a>

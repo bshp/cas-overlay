@@ -137,6 +137,15 @@ label {
     left: 15px;
 }
 
+#msg.error-msg {
+    padding: 0 25px 25px 25px;
+}
+
+#msg.error-msg .btn-submit {
+    text-decoration: none;
+    color: #fff;
+}
+
 a:link {
     color: #336699;
     text-decoration: underline;

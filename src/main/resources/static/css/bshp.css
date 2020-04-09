@@ -91,6 +91,16 @@ body {
     padding: 10px 40px;
     background-position: 2%;
 }
+
+#msg.error-msg {
+    padding: 0 25px 25px 25px;
+}
+
+#msg.error-msg .btn-submit {
+    text-decoration: none;
+    color: #fff;
+}
+
 /*
 #msg h3, p {
     padding-left: 15px;
