@@ -1614,8 +1614,8 @@ fieldset[disabled] .btn-submit.focus {
     padding: 0px 5px;
     font-weight: normal;
     font-size: 1.25em;
-    height: 30px;
-    width: 125px;
+    height: 2em;
+    width: 8em;
     cursor: pointer;
     margin: 0;
 }
