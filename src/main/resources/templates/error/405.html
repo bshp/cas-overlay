@@ -9,7 +9,7 @@
 
         <div th:replace="fragments/header"></div>
 
-        <div id="msg" class="alert alert-danger error-msg">
+        <div id="msg" class="alert alert-danger msg-padding">
             <h3 th:utext="#{screen.error.page.requestunsupported}">The request type or syntax is not supported.</h3>
             <p th:utext="#{screen.error.page.permissiondenied}">You do not have permission to view this page.</p>
             <a class="btn btn-submit" th:href="@{/login}" th:utext="#{screen.error.page.loginagain}">Login Again</a>
