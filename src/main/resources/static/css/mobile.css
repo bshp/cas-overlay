@@ -137,11 +137,11 @@ label {
     left: 15px;
 }
 
-#msg.error-msg {
+#msg.msg-padding {
     padding: 0 25px 25px 25px;
 }
 
-#msg.error-msg .btn-submit {
+#msg.msg-padding .btn-submit {
     text-decoration: none;
     color: #fff;
 }
@@ -1503,9 +1503,9 @@ fieldset[disabled] .btn-submit.focus {
 .btn-submit {
     border: 0;
     font-weight: normal;
-    width: 75px;
+    width: 8em;
     font-size: 14px;
-    height: 20px;
+    height: 2em;
     margin-bottom: 15px;
 }
 

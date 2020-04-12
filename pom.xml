@@ -197,6 +197,11 @@
                     <artifactId>cas-server-support-saml-sp-integrations</artifactId>
                     <version>${cas.version}</version>
                 </dependency>
+                <dependency>
+                    <groupId>org.apereo.cas</groupId>
+                    <artifactId>cas-server-core-events-configuration</artifactId>
+                    <version>${cas.version}</version>
+                </dependency>
                 <!-- Non-Cas Dependencies -->
                 <dependency>
                     <groupId>mysql</groupId>

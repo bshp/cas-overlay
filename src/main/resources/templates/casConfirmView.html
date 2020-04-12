@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:text="#{screen.confirmation.message}">Confirm View</title>
+    <title>Login Confirmation</title>
 </head>
 <body>
 <div id="main" class="content" role="main">
@@ -9,8 +9,11 @@
 
         <div th:replace="fragments/header"></div>
 
-        <div id="msg" class="alert alert-info">
-            <h4 th:text="#{screen.confirmation.message}">You asked to be warned before logging into applications. Please proceed.</h4>
+        <div id="msg" class="alert alert-info msg-padding">
+            <p th:text="#{screen.confirmation.message(${service.id})}">If you click continue, you will be logged into the following application:<br>
+              <br>
+                {0}
+            </p>
             <form method="post" id="form" class="fm-v clearfix">
                 <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
                 <div class="form-group">
@@ -19,6 +22,7 @@
                         <label for="ignorewarn" class="form-check-label" th:utext="#{screen.welcome.label.warnremove}">Do not warn me again</label>
                     </div>
                 </div>
+                <br>
                 <input class="btn btn-submit" name="_eventId_success" accesskey="l" th:value="#{screen.button.continue}" tabindex="4" type="submit" value="Continue"/>
             </form>
         </div>
