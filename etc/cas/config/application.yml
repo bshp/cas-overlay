@@ -1,0 +1,41 @@
+# All location/node specific settings should be here,
+# cas.properties is global for all nodes.
+
+info:
+  description: Node CAS Configuration
+
+bshp:
+  api:
+    version: 1
+  cas:
+    node:
+      id: 0
+      name: NODE NAME
+      location: DATACENTER LOCALE
+      version: VERSION INTEGER
+      environment: DEV OR PROD
+  mail:
+    host: 10.10.10.10
+    user: USERNAME
+    password: PASSWORD
+cas:
+  audit:
+    enabled: true
+    appCode: CAS
+    ignoreAuditFailures: true
+    numberOfDaysInHistory: 30
+    includeValidationAssertion: true
+    alternateClientAddrHeaderName: X-Forwarded-For
+    useServerHostAddress: false
+    slf4j:
+      auditFormat: JSON
+      singlelineSeparator: |
+      useSingleLine: true
+  # ldap url should point to virtual ip url, add datacenter controller as well
+  ldap:
+    url: ldaps://LB.EXAMPLE.COM:636 ldaps://HOST.EXAMPLE.COM:636
+    bind-user: USERNAME
+    bind-pwd: PASSWORD
+logging:
+  config: file:/etc/cas/config/log4j2.xml
+  

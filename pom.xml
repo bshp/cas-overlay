@@ -11,7 +11,7 @@
 
     <properties>
         <bshp.version>4.1</bshp.version>
-        <cas.version>6.1.4</cas.version>
+        <cas.version>6.1.6</cas.version>
         <mysql.version>8.0.15</mysql.version>
         <mssql.version>7.4.0.jre11</mssql.version>
         <springboot.version>2.2.0.RELEASE</springboot.version>

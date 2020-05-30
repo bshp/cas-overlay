@@ -1,9 +1,11 @@
 sudo: required
 dist: bionic
 language: java
+branches:
+  only:
+    - bshp/master
 
 install: true
-
 cache:
   directories:
     - $HOME/.m2
