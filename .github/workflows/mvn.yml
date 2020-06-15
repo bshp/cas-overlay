@@ -1,9 +1,9 @@
 name: Maven Runner
 on:
   push:
-    branches: [ master ]
+    branches: [ bshp/master ]
   pull_request:
-    branches: [ master ]
+    branches: [ bshp/master ]
 jobs:
   build:
     runs-on: ubuntu-latest
