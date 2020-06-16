@@ -1,4 +1,4 @@
-name: Maven Runner
+name: Maven CLI Runner
 on:
   push:
     branches: [ bshp/master ]
