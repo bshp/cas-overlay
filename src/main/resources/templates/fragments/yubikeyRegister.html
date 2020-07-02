@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+        <form method="post" id="yubiKeyForm" class="fm-v clearfix">
+            <div class="alert alert-info" th:text="#{cas.mfa.yubikey.register}">
+                Your device is not yet registered. Use the below form to register your device with CAS.
+            </div>
+            <fieldset id="inputarea">
+                <div id="fields">
+                    <div class="row">
+                        <label for="token" class="fl-label" th:utext="#{cas.mfa.yubikey.label.token}">Token:</label>
+                        <input type="password" class="form-control" required id="token" th:name="token" size="25" tabindex="1" autocomplete="off"/>
+                    </div>
+                    <input class="btn btn-submit" accesskey="s" th:value="#{screen.welcome.button.register}" tabindex="2" type="submit"/>
+                    <input type="hidden" name="_eventId_submit" value="Register" />
+                    <input type="hidden" name="execution" th:value="${flowExecutionKey}"/>
+                </div>
+            </fieldset>
+        </form>
+
+    </body>
+</html>
