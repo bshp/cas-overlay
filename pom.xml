@@ -10,8 +10,8 @@
     <version>1.0</version>
 
     <properties>
-        <bshp.version>4.1</bshp.version>
-        <cas.version>6.1.6</cas.version>
+        <bshp.version>4.2</bshp.version>
+        <cas.version>6.1.7</cas.version>
         <mysql.version>8.0.16</mysql.version>
         <mssql.version>7.4.0.jre11</mssql.version>
         <springboot.version>2.2.0.RELEASE</springboot.version>
